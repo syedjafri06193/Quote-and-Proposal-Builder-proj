@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # strict, noUncheckedIndexedAccess, exactOptionalPropertyTypes; also proves Money + number is a compile error
+      - run: npm run typecheck
+      # money, golden fixtures, properties, cliffs, purity, replay, approvals, byte-identical PDFs, e-sign
+      - run: npm test
+      - run: npm run demo

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quote Builder</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Quote Builder <span>CPQ</span></div>
+    <nav>
+      <a href="#/quotes" id="nav-quotes">Quotes</a>
+      <a href="#/inbox" id="nav-inbox">Approvals<span class="count" id="inbox-count" hidden></span></a>
+      <a href="/admin">Rules &amp; governance</a>
+    </nav>
+    <div class="spacer"></div>
+    <label style="font-size:12px;color:#aab">Acting as</label>
+    <select id="user"></select>
+  </header>
+  <main class="layout">
+    <aside class="list">
+      <div class="head"><h2>Quotes</h2><button class="btn small primary" id="new-quote">New quote</button></div>
+      <div id="quote-list"></div>
+    </aside>
+    <section class="detail" id="detail"><div class="empty">Select a quote or create a new one.</div></section>
+  </main>
+  <script src="/common.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

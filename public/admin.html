@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rules &amp; Governance</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Quote Builder <span>Governance</span></div>
+    <nav>
+      <a href="/#/quotes">Quotes</a>
+      <a href="/#/inbox">Approvals</a>
+      <a href="/admin" class="on">Rules &amp; governance</a>
+    </nav>
+    <div class="spacer"></div>
+    <label style="font-size:12px;color:#aab">Acting as</label>
+    <select id="user"></select>
+  </header>
+  <main class="layout">
+    <aside class="list">
+      <div class="head"><h2>Published rule sets</h2></div>
+      <div id="versions"></div>
+      <div class="head"><h2>Drafts</h2><button class="btn small primary" id="new-draft">New draft</button></div>
+      <div id="drafts"></div>
+      <div class="head"><h2>Health</h2></div>
+      <a class="qitem" href="#/health">Replay, consistency &amp; reports</a>
+    </aside>
+    <section class="detail" id="detail"><div class="empty">Pick a rule set or draft.</div></section>
+  </main>
+  <script src="/common.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

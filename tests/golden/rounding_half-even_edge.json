@@ -1,0 +1,55 @@
+{
+  "description": "price override of $10.005 on a one-time line lands exactly on a half cent; half-even gives $10.00 (floors and the stacking ceiling are opened up so the override applies untouched)",
+  "ruleSetOverrides": {
+    "rounding": {
+      "mode": "half-even",
+      "point": "line"
+    },
+    "floors": {
+      "defaultMaxDiscountBp": 10000,
+      "behavior": "clamp-and-warn",
+      "byProduct": []
+    },
+    "discountRules": [
+      {
+        "id": "odd-price",
+        "name": "Odd price",
+        "priority": 1,
+        "stackable": true,
+        "condition": {
+          "op": "eq",
+          "field": "line.productId",
+          "value": "onb"
+        },
+        "effect": {
+          "type": "overridePrice",
+          "perUnit": "10.005"
+        }
+      }
+    ],
+    "stacking": {
+      "mode": "multiplicative",
+      "exclusiveGroups": [
+        "promo"
+      ],
+      "incompatible": [],
+      "maxTotalBasisPoints": 10000,
+      "manualPriority": 40
+    }
+  },
+  "config": {
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "onb",
+        "quantity": "1"
+      }
+    ]
+  },
+  "expected": {
+    "total": "10.00",
+    "lines": {
+      "L1": "10.00"
+    }
+  }
+}

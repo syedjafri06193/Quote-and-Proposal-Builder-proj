@@ -1,0 +1,18 @@
+{
+  "description": "graduated platform tiers at 99 seats: 99 \u00d7 $240",
+  "config": {
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "99"
+      }
+    ]
+  },
+  "expected": {
+    "total": "23760.00",
+    "lines": {
+      "L1": "23760.00"
+    }
+  }
+}

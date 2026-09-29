@@ -1,0 +1,19 @@
+{
+  "description": "14-month term prices as 14/12 of annual: 10 seats \u00d7 $240 \u00d7 14/12 = $2,800.00",
+  "config": {
+    "termMonths": 14,
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "10"
+      }
+    ]
+  },
+  "expected": {
+    "total": "2800.00",
+    "lines": {
+      "L1": "2800.00"
+    }
+  }
+}

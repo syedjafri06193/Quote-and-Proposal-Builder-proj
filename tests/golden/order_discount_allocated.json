@@ -1,0 +1,21 @@
+{
+  "description": "1,000 seats \u00d7 36 months: graduated $564,984.00, multi-year 7% \u2192 $525,435.12, \u2265 $250k so 2% order discount \u2192 $514,926.42 (order discount $10,508.70)",
+  "config": {
+    "termMonths": 36,
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "1000"
+      }
+    ]
+  },
+  "expected": {
+    "subtotal": "525435.12",
+    "orderDiscount": "10508.70",
+    "total": "514926.42",
+    "lines": {
+      "L1": "514926.42"
+    }
+  }
+}

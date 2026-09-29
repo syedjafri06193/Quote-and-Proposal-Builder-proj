@@ -1,0 +1,18 @@
+{
+  "description": "5 \u00d7 $1,500 (volume, all units at band 5+)",
+  "config": {
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "train",
+        "quantity": "5"
+      }
+    ]
+  },
+  "expected": {
+    "total": "7500.00",
+    "lines": {
+      "L1": "7500.00"
+    }
+  }
+}

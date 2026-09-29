@@ -1,0 +1,24 @@
+{
+  "description": "2,500,000 API calls for 12 months at the 1M+ volume band: 2,500,000 \u00d7 $0.0010 = $2,500.00",
+  "config": {
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "1"
+      },
+      {
+        "lineId": "L2",
+        "productId": "api",
+        "quantity": "2500000"
+      }
+    ]
+  },
+  "expected": {
+    "total": "2740.00",
+    "lines": {
+      "L1": "240.00",
+      "L2": "2500.00"
+    }
+  }
+}

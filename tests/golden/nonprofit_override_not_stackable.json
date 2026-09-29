@@ -1,0 +1,26 @@
+{
+  "description": "Nonprofit seat price override ($150, non-stackable, priority 10) blocks later stackable rules: 10 seats \u00d7 $150 \u00d7 36/12 = $4,500.00",
+  "config": {
+    "segment": "nonprofit",
+    "accountId": "acct-riverbend",
+    "termMonths": 36,
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "10"
+      }
+    ]
+  },
+  "expected": {
+    "total": "4500.00",
+    "lines": {
+      "L1": "4500.00"
+    },
+    "appliedRules": {
+      "L1": [
+        "nonprofit-price"
+      ]
+    }
+  }
+}

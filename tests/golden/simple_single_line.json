@@ -1,0 +1,18 @@
+{
+  "description": "10 seats, 12 months, list price, no rules fire: 10 \u00d7 $240 = $2,400.00",
+  "config": {
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "10"
+      }
+    ]
+  },
+  "expected": {
+    "total": "2400.00",
+    "lines": {
+      "L1": "2400.00"
+    }
+  }
+}

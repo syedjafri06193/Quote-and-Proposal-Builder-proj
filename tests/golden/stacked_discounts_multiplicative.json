@@ -1,0 +1,26 @@
+{
+  "description": "Premium support, gold partner 10% then multi-year 7%, multiplicative: $36,000 \u00d7 0.90 \u00d7 0.93 = $30,132.00",
+  "config": {
+    "channel": "partner-gold",
+    "termMonths": 36,
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "prem",
+        "quantity": "1"
+      }
+    ]
+  },
+  "expected": {
+    "total": "30132.00",
+    "lines": {
+      "L1": "30132.00"
+    },
+    "appliedRules": {
+      "L1": [
+        "partner-gold",
+        "multi-year"
+      ]
+    }
+  }
+}

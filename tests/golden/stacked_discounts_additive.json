@@ -1,0 +1,31 @@
+{
+  "description": "Same deal under additive stacking: $36,000 \u2212 10% \u2212 7% of $36,000 = $29,880.00 ($252 less than multiplicative)",
+  "ruleSetOverrides": {
+    "stacking": {
+      "mode": "additive",
+      "exclusiveGroups": [
+        "promo"
+      ],
+      "incompatible": [],
+      "maxTotalBasisPoints": 5000,
+      "manualPriority": 40
+    }
+  },
+  "config": {
+    "channel": "partner-gold",
+    "termMonths": 36,
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "prem",
+        "quantity": "1"
+      }
+    ]
+  },
+  "expected": {
+    "total": "29880.00",
+    "lines": {
+      "L1": "29880.00"
+    }
+  }
+}

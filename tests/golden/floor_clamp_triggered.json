@@ -1,0 +1,20 @@
+{
+  "description": "80% rep discount on onboarding: stacking ceiling caps at 50% ($2,500), then the 40% max-discount floor clamps to $3,000.00",
+  "config": {
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "onb",
+        "quantity": "1",
+        "manualDiscountBp": 8000
+      }
+    ]
+  },
+  "expected": {
+    "total": "3000.00",
+    "lines": {
+      "L1": "3000.00"
+    },
+    "floorClamped": true
+  }
+}

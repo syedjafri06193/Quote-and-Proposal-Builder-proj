@@ -1,0 +1,35 @@
+{
+  "name": "quote-proposal-builder",
+  "version": "1.0.0",
+  "description": "CPQ: tiered pricing, discount approval chains, deterministic proposals, e-signature handoff",
+  "scripts": {
+    "dev": "tsx src/api/server.ts",
+    "start": "tsx src/api/server.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx scripts/seed.ts",
+    "demo": "tsx scripts/demo.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/issues"
+  },
+  "homepage": "https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "fast-check": "^4.10.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.2"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  },
+  "private": true,
+  "type": "module"
+}

@@ -1,0 +1,28 @@
+{
+  "description": "Q4-2026 (5%, priority 30) and LAUNCH (8%, priority 31) share the exclusive 'promo' group: only Q4-2026 applies. 10 seats: $2,400 \u00d7 0.95 = $2,280.00",
+  "config": {
+    "promoCodes": [
+      "LAUNCH",
+      "Q4-2026"
+    ],
+    "asOf": "2026-10-15",
+    "lines": [
+      {
+        "lineId": "L1",
+        "productId": "plat",
+        "quantity": "10"
+      }
+    ]
+  },
+  "expected": {
+    "total": "2280.00",
+    "lines": {
+      "L1": "2280.00"
+    },
+    "appliedRules": {
+      "L1": [
+        "q4-promo"
+      ]
+    }
+  }
+}
