@@ -6,8 +6,8 @@
  * auth (OIDC/SAML) in front before using this with real data.
  */
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
-import { join, extname, dirname } from 'node:path';
+import { readFileSync, statSync } from 'node:fs';
+import { join, extname, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createApp, type App } from '../app/app.ts';
 import { DomainError } from '../app/errors.ts';
@@ -223,7 +223,16 @@ export function buildRouter(app: App) {
 function serveStatic(path: string, res: ServerResponse): void {
   const file = path === '/' ? 'index.html' : path === '/admin' ? 'admin.html' : path.replace(/^\/+/, '');
   const full = join(PUBLIC, file);
-  if (!full.startsWith(PUBLIC) || !existsSync(full)) {
+  // Must resolve *inside* public/ (a bare prefix check would also accept a
+  // sibling such as public-old/) and be a regular file: reading a directory
+  // throws EISDIR, which used to surface as a 500.
+  let isFile = false;
+  try {
+    isFile = statSync(full).isFile();
+  } catch {
+    isFile = false;
+  }
+  if (!full.startsWith(PUBLIC + sep) || !isFile) {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('not found');
     return;

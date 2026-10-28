@@ -70,4 +70,13 @@ describe('API', () => {
     expect(r.body.error.code).toBe('approval_invalidated');
     expect(r.body.error.details.reapprovers).toEqual(['Mike Okafor']);
   });
+
+  test('static files: served from public/ only', async () => {
+    expect((await fetch(`${base}/`)).status).toBe(200);
+    expect((await fetch(`${base}/admin`)).status).toBe(200);
+    // Encoded traversal attempts and paths outside public/ all 404.
+    for (const path of ['/..%2Fpackage.json', '/%2E%2E/package.json', '/../public-x/index.html', '/nope.html']) {
+      expect((await fetch(base + path)).status, path).toBe(404);
+    }
+  });
 });

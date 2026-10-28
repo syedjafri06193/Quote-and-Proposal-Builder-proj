@@ -1,9 +1,11 @@
 # Quote-and-Proposal-Builder-proj
 
+[![CI](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/actions/workflows/ci.yml/badge.svg)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/actions/workflows/ci.yml)
+
 CPQ flow with tiered pricing rules, discount approval chains, and templated proposal generation handed off to e-signature.
 
 This is a working TypeScript implementation of the design in
-[`Documentation/README.md`](Documentation/README.md): an immutable, versioned quote model; a
+[`1—Documentation/design-guide.md`](1—Documentation/design-guide.md): an immutable, versioned quote model; a
 deterministic pricing engine with a full price trace; explicit discount stacking and rounding;
 approval chains protected by a content fingerprint; deterministic PDF proposals; e-signature with
 webhook + polling reconciliation; and a structured contract that billing can ingest.
@@ -17,7 +19,7 @@ npm install
 npm run seed      # optional: a few sample quotes in different states (data/db.json)
 npm start         # http://localhost:3000   — quote builder
                   # http://localhost:3000/admin — rules, simulation, governance health
-npm test          # 109 tests: money, golden fixtures, properties, cliffs, replay, approvals, PDFs, e-sign, API
+npm test          # 110 tests: money, golden fixtures, properties, cliffs, replay, approvals, PDFs, e-sign, API
 npm run typecheck # strict + noUncheckedIndexedAccess + exactOptionalPropertyTypes
 npm run demo      # end-to-end walkthrough in the terminal (writes data/demo-proposal.pdf)
 ```
@@ -31,7 +33,7 @@ provider (view / sign / decline / expire / tamper, drop webhooks, run reconcilia
 
 | Design guide | Where | Notes |
 |---|---|---|
-| §3 / M0 pricing semantics | [`docs/pricing-semantics.md`](docs/pricing-semantics.md) | Multiplicative stacking, half-up rounding once at the line, graduated vs volume tiers, clamp-and-warn floors, N/12 proration. **Needs finance sign-off.** |
+| §3 / M0 pricing semantics | [`1—Documentation/pricing-semantics.md`](1—Documentation/pricing-semantics.md) | Multiplicative stacking, half-up rounding once at the line, graduated vs volume tiers, clamp-and-warn floors, N/12 proration. **Needs finance sign-off.** |
 | §5 / M1 money | `src/money/money.ts` | Branded `bigint` minor units, 7 explicit rounding modes, basis points, ISO 4217 scales. `Money + number` is a compile error (tested). |
 | §4 / M2 immutability | `src/store/store.ts`, `src/app/quotes.ts` | Append-only versions and events; `getQuote` never calls the engine (tested with an engine that throws); `reprice` creates a new version. SQL target schema in `db/migrations/001_init.sql`. |
 | §6 / M3 pricing engine | `src/pricing/` | Pure pipeline `configure → base → tiers → discounts → floors → round → order-level → tax(delegated)`, every stage traced. Constrained condition language, validated at publish. |
@@ -39,7 +41,7 @@ provider (view / sign / decline / expire / tamper, drop webhooks, run reconcilia
 | §8 / M5 approvals | `src/approvals/` | Plan resolution (sequential/parallel, role / user / manager-of), stored plan, **fingerprint over material terms only**, delegation, business-hours escalation, approve-with-conditions, recall, owner can't self-approve. |
 | §9 / M6 documents | `src/documents/generate.ts` | pdf-lib with standard fonts and fixed metadata → byte-identical output (tested). Repeating table headers, rows never split, conditional SLA appendix, anchor-text signature fields, versioned templates. |
 | §10 / M7 e-signature | `src/esign/` | Provider interface, `FakeESignProvider` (every state), `DocuSignProvider` adapter; idempotency key stored before the call, crash recovery, HMAC + replay-window webhooks, polling reconciliation with drift logging, signed-document integrity check, certificate stored. |
-| §11 / M8 contract | `src/contracts/contract.ts`, [`docs/downstream-contract.md`](docs/downstream-contract.md) | `ExecutedContract` with billing frequency, recognition method, SSP and per-line service dates; published once to an idempotent outbox. |
+| §11 / M8 contract | `src/contracts/contract.ts`, [`1—Documentation/downstream-contract.md`](1—Documentation/downstream-contract.md) | `ExecutedContract` with billing frequency, recognition method, SSP and per-line service dates; published once to an idempotent outbox. |
 | M9 builder UI | `public/` | Quote builder, price-trace waterfall, approvals, inbox + delegation, PDF preview, signature simulator, contract, audit log. No build step. |
 | §12.4 / M10 governance | `/admin#/health` | Sanctioned non-standard quotes (manual prices, always top-tier approval, permanent flag, frequency report), replay check, state/event-log consistency, review flags, outbox, audit export. |
 
@@ -60,7 +62,7 @@ src/
   seed/         catalog, rule set v1, users, accounts
 public/         builder + admin UI (vanilla JS)
 tests/          vitest + fast-check; golden/ fixtures are hand-computed
-docs/           pricing semantics, rule authoring, downstream contract
+1—Documentation/ design guide (+PDF), pricing semantics, rule authoring, downstream contract
 db/migrations/  PostgreSQL target schema
 scripts/        demo, seed
 ```
