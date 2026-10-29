@@ -84,3 +84,31 @@ under its pinned rule set and price book and must reproduce byte-for-byte.
   (M0) and billing on `docs/downstream-contract.md` (M8).
 - Out of v1 scope by design: amendments/renewals/co-terming, ramps, multi-currency, usage pricing,
   tax calculation (delegated), CLM.
+
+<!-- project-metrics:start -->
+## Project Metrics
+
+[![Stars](https://img.shields.io/github/stars/syedjafri06193/Quote-and-Proposal-Builder-proj?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/stargazers) [![Forks](https://img.shields.io/github/forks/syedjafri06193/Quote-and-Proposal-Builder-proj?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/forks) [![Open issues](https://img.shields.io/github/issues/syedjafri06193/Quote-and-Proposal-Builder-proj?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/issues) [![Last commit](https://img.shields.io/github/last-commit/syedjafri06193/Quote-and-Proposal-Builder-proj/improvements?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/commits/improvements) [![Commits](https://img.shields.io/github/commit-activity/t/syedjafri06193/Quote-and-Proposal-Builder-proj?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj/commits/improvements) [![Top language](https://img.shields.io/github/languages/top/syedjafri06193/Quote-and-Proposal-Builder-proj?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj) [![Repo size](https://img.shields.io/github/repo-size/syedjafri06193/Quote-and-Proposal-Builder-proj?style=flat-square)](https://github.com/syedjafri06193/Quote-and-Proposal-Builder-proj)
+
+### Code
+
+| Metric | Value |
+|---|---|
+| Lines of code | 6,361 |
+| Source files | 49 |
+| Tracked files | 78 |
+| Documentation | 6 Markdown files (12,481 words), 1 PDF |
+| Commits | 7 |
+| Contributors | 2 |
+| Active | 2026-09-11 → 2026-10-28 |
+
+| Language | Lines | Share |
+|---|---:|---:|
+| TypeScript | 5,439 | 85.5% |
+| JavaScript+Genshi Text | 553 | 8.7% |
+| Transact-SQL | 173 | 2.7% |
+| CSS+Lasso | 130 | 2.0% |
+| HTML | 66 | 1.0% |
+
+<sub>Code stats as of 2026-10-28, counted with pygount (comments and blank lines excluded). Badges update live.</sub>
+<!-- project-metrics:end -->
